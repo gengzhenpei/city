@@ -35,18 +35,16 @@ var resource={
     },
     //获得钢铁和纸数据
     getGTSource:function(dataObj){
-        $('.list-title-box').show()
+        $('.list-title-box').show();
+        $("#showList_content").html('');
     	var self=this;
-    	
         dataObj.attentionFlag=0;
-        //console.log(dataObj)
         $.ajax({
             url:"http://47.93.102.34:8088/cmscm/webshop/showResource",
             type:"post",
             dataType:"json",
             data:dataObj,
             success:function(data){
-                // console.log(data)
                  if(data[0].ret==0){ 
                     $('.list-title-box').hide()
                  	self.allNum=data[0].count;
@@ -131,7 +129,8 @@ var resource={
     },
     //获得废家电
     getJDSource:function(dataObj){
-        $('.list-title-box').show()
+        $('.list-title-box').show();
+        $("#showList_content").html('');
     	var self=this;
         dataObj.attentionFlag=0;
         // console.log(dataObj)
@@ -222,7 +221,8 @@ var resource={
         })
     },
     getFollowSource:function(dataObj){
-        $('.list-title-box').show()
+        $('.list-title-box').show();
+        $("#showList_content").html('');
         var self=this;
         console.log(dataObj)
         $.ajax({
@@ -233,6 +233,7 @@ var resource={
             success:function(data){
                 console.log(data[0])
                 if(data[0].ret==0){
+                	alert(1)
                     $('.list-title-box').hide()
                     self.allNum=data[0].count;
                     $ul=$("<ul class='showList_content spot_f1'></ul>")

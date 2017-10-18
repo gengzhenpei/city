@@ -5,8 +5,11 @@ $(function() {
 			type: 1,
 			species: "",
 			factory: "",
+			localCity: "",
+			size: "",
+			disassembleFactory: "",
 			companyName: "",
-			currentPage: 1,
+			currentPage: 1, 
 			numPerPage: 20,
 			bbbb: true,
 			allPage: 4,
@@ -40,7 +43,7 @@ $(function() {
 			preliminary.dataObj.numPerPage = data[0].count / 20 < 1 ? 1 : Math.ceil(data[0].count / 20);
 			preliminary.productPage(preliminary.dataObj.numPerPage, 1);
 		},
-		//生成按钮个数
+		//生成分页按钮
 		productPage: function(allPage, currentPage) {
 			if(allPage < 7) {
 				for(var i = 1; i <= allPage; i++) {
@@ -75,13 +78,14 @@ $(function() {
 		AJAX: function () {
 
 			$(".list-title-box").show().css({ "text-align": "center", "margin": "100px 0" });
-
 			if(location.search) {
 				// var formData=decodeURIComponent(location.search.slice(1).split('&').split('=')[1]);
 				// var chuData=JSON.parse(formData);
 				var Ob = decodeURIComponent(location.search.slice(1).split('&')[4].split('=')[1]);;
 				var localCity = decodeURIComponent(location.search.slice(1).split('&')[0].split('=')[1]);
+				preliminary.dataObj.localCity = localCity;
 				var species = decodeURIComponent(location.search.slice(1).split('&')[1].split('=')[1]);
+				preliminary.dataObj.species = species;
 				var caizhi;
 				var steelMill;
 				var size;
@@ -110,20 +114,23 @@ $(function() {
 					$('.waste-title li').eq(0).css({ "color": "", "border-bottom": "none" });
 					$('.waste-title li').eq(2).css({ "color": "", "border-bottom": "none" });
 				}
+						console.log('localCity', localCity)
+				
 				$.ajax({
-					type: "get",
+					type: "post",
 					url: "http://47.93.102.34:8088/cmscm/webshop/showShangCheng",
 					async: true,
 					data: {
 						"type": Ob,
 						"size": size,
-						"localCity": localCity,
+						"localcity": localCity,
 						"tradeName": species,
 						"steelMill": steelMill,
 						"disassembleFactory": factory
 					},
 					dataType: "json",
 					success: function(msg) {
+						console.log('msg', msg)
 						$(".list-title-box").hide();
 						preliminary.dataObj.currentPage = 1;
 						preliminary.dataObj.bbbb = true;
@@ -483,30 +490,48 @@ $(function() {
 			$('.paging .nextPage').click(function() {
 				if(preliminary.dataObj.bbbb == true) {
 					preliminary.dataObj.currentPage++;
+					var postData;
+					if(preliminary.dataObj.Ob==1){
+						postData = {
+							"type": preliminary.dataObj.Ob,
+							"currentPage": preliminary.dataObj.currentPage,
+							"localcity": preliminary.dataObj.localCity,
+							"tradeName": preliminary.dataObj.species,
+							"steelMill": preliminary.dataObj.steelMill
+						}
+					}else if(preliminary.dataObj.Ob==2){
+						postData = {
+							"type": preliminary.dataObj.Ob,
+							"currentPage": preliminary.dataObj.currentPage,
+							"localcity": preliminary.dataObj.localCity,
+							"specise": preliminary.dataObj.species,
+							"size": preliminary.dataObj.size,
+							"disassembleFactory": preliminary.dataObj.disassembleFactory
+						}
+					}else if(preliminary.dataObj.Ob==7){
+						alert(7)
+					}
 					$(".list-title-box").show().css({ "text-align": "center", "margin": "100px 0" });
+					console.log('postData', postData)
 					$.ajax({
 						type: "post",
 						url: "http://47.93.102.34:8088/cmscm/webshop/showShangCheng",
 						async: true,
-						data: {
-							"type": preliminary.dataObj.Ob,
-							"currentPage": preliminary.dataObj.currentPage
-						},
+						data: postData,
 						success: function(data) {
 							$('.list-title-box').hide()
 							preliminary.btn_judge();
 							preliminary.Jump_page_number();
 							var Content_data = data[0].content;
+							console.log('Content_data', Content_data)
 							if(Content_data.length == 0) { return }
 							if(preliminary.dataObj.Ob == 2) {
 								$('.list-title-wrap1').html("");
-								console.log('bb')
 								for(var i = 0; i < Content_data.length; i++) {
 									$('.list-title-wrap1').append('<div class="resource_btnList1"><div class="waste-data1"><div>' + (i + 1) + '</div><div>' + Content_data[i].shopCode + '</div><div>' + Content_data[i].disassembleFactory + '</div><div>' + Content_data[i].city + '</div><div>' + Content_data[i].typeO + '</div><div>' + Content_data[i].specification + '</div><div>' + Content_data[i].unitPrice + '</div><div>' + Content_data[i].state + '</div><div class="choose"><div>选购</div></div></div><div>');
 								}
 							} else {
 								$('.list-title-wrap').html('');
-								console.log('cc')
 								for(var i = 0; i < Content_data.length; i++) {
 									$('.list-title-wrap').append('<div class="resource_btnList"><div class="waste-data"><div>' + (i + 1) + '</div><div>' + Content_data[i].code + '</div><div>' + Content_data[i].factory + '</div><div>' + Content_data[i].localCity + '</div><div>' + Content_data[i].type + '</div><div>' + Content_data[i].species + '</div><div>' + Content_data[i].sizeDes + '</div><div>' + Content_data[i].price + '</div><div>' + Content_data[i].size + '</div><div class="choose"><div>选购</div></div></div><div>');
 								}
@@ -575,14 +600,32 @@ $(function() {
 				if(preliminary.dataObj.bbbb == true) {
 
 					preliminary.dataObj.currentPage--;
+					var postData;
+					if(preliminary.dataObj.Ob==1){
+						postData = {
+							"type": preliminary.dataObj.Ob,
+							"currentPage": preliminary.dataObj.currentPage,
+							"localcity": preliminary.dataObj.localCity,
+							"tradeName": preliminary.dataObj.species,
+							"steelMill": preliminary.dataObj.steelMill
+						}
+					}else if(preliminary.dataObj.Ob==2){
+						postData = {
+							"type": preliminary.dataObj.Ob,
+							"currentPage": preliminary.dataObj.currentPage,
+							"localcity": preliminary.dataObj.localCity,
+							"specise": preliminary.dataObj.species,
+							"size": preliminary.dataObj.size,
+							"disassembleFactory": preliminary.dataObj.disassembleFactory
+						}
+					}else if(preliminary.dataObj.Ob==7){
+						alert(7)
+					}
 					$.ajax({
 						type: "post",
 						url: "http://47.93.102.34:8088/cmscm/webshop/showShangCheng",
 						async: true,
-						data: {
-							"type": preliminary.dataObj.Ob,
-							"currentPage": preliminary.dataObj.currentPage
-						},
+						data: postData,
 						success: function(data) {
 							$('.list-title-box').hide()
 							preliminary.btn_judge();
@@ -663,15 +706,33 @@ $(function() {
 				$('.list-title-wrap1').html('<div class="list-title-box"><img src="images/loading.gif" alt="" class="list-title-img"></div>');
 //				$(".list-title-box").show().css({ "text-align": "center", "margin": "100px 0" });
 				$(".list-title-box").addClass('loading_pic');
+				var postData;
+					if(preliminary.dataObj.Ob==1){
+						postData = {
+							"type": preliminary.dataObj.Ob,
+							"currentPage": preliminary.dataObj.currentPage,
+							"localcity": preliminary.dataObj.localCity,
+							"tradeName": preliminary.dataObj.species,
+							"steelMill": preliminary.dataObj.steelMill
+						}
+					}else if(preliminary.dataObj.Ob==2){
+						postData = {
+							"type": preliminary.dataObj.Ob,
+							"currentPage": preliminary.dataObj.currentPage,
+							"localcity": preliminary.dataObj.localCity,
+							"specise": preliminary.dataObj.species,
+							"size": preliminary.dataObj.size,
+							"disassembleFactory": preliminary.dataObj.disassembleFactory
+						}
+					}else if(preliminary.dataObj.Ob==7){
+						alert(7)
+					}
 				if(preliminary.dataObj.bbbb == true) {
 					$.ajax({
 						type: "post",
 						url: "http://47.93.102.34:8088/cmscm/webshop/showShangCheng",
 						async: true,
-						data: {
-							"type": preliminary.dataObj.Ob,
-							"currentPage": preliminary.dataObj.currentPage
-						},
+						data: postData,
 						success: function(data) {
 							$('.list-title-box').hide()
 							preliminary.btn_judge();
@@ -750,15 +811,33 @@ $(function() {
 					val = preliminary.dataObj.numPerPage;
 				}
 				preliminary.dataObj.currentPage = val;
+				var postData;
+					if(preliminary.dataObj.Ob==1){
+						postData = {
+							"type": preliminary.dataObj.Ob,
+							"currentPage": preliminary.dataObj.currentPage,
+							"localCity": preliminary.dataObj.localCity,
+							"tradeName": preliminary.dataObj.species,
+							"steelMill": preliminary.dataObj.steelMill
+						}
+					}else if(preliminary.dataObj.Ob==2){
+						postData = {
+							"type": preliminary.dataObj.Ob,
+							"currentPage": preliminary.dataObj.currentPage,
+							"localCity": preliminary.dataObj.localCity,
+							"specise": preliminary.dataObj.species,
+							"size": preliminary.dataObj.size,
+							"disassembleFactory": preliminary.dataObj.disassembleFactory
+						}
+					}else if(preliminary.dataObj.Ob==7){
+						alert(7)
+					}
 				if(preliminary.dataObj.bbbb == true) {
 					$.ajax({
 						type: "post",
 						url: "http://47.93.102.34:8088/cmscm/webshop/showShangCheng",
 						async: true,
-						data: {
-							"type": preliminary.dataObj.Ob,
-							"currentPage": preliminary.dataObj.currentPage
-						},
+						data: postData,
 						success: function(data) {
 							$('.list-title-box').hide()
 							preliminary.btn_judge();

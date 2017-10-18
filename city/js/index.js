@@ -669,14 +669,12 @@ $(function() {
 	//钢铁点击按钮搜索
 	$('#search2').click(function() {
 		var obj = {};
-//		obj.localCity = home.changeVal2;
 		obj.localCity = $('#product_city2').val();
 		obj.species = home.product_name2;
 		obj.size = $('#input_type2').val();
 		obj.disassembleFactory = $('#input_text2').val();
 		obj.sign = 2;
 		var formData = JSON.stringify(obj);
-		console.log(formData)
 		window.location.href = 'steel.html?localCity=' + obj.localCity + '&species=' + obj.species + '&size=' + obj.size + '&disassembleFactory=' + obj.disassembleFactory + '&sign=' + obj.sign;
 	});
 	/*帮助中心 sidebar*/
