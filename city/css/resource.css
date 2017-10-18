@@ -1,0 +1,451 @@
+﻿/* 资源start*/
+.resource_wrapper,
+.spot_wrapper{
+    width:1200px;
+    /*height:800px;*/
+    margin:0 auto;
+    position:relative;
+    padding-bottom:40px;
+}
+ .resource_tab{
+    border-bottom:1px solid #e6e6e6;
+    height:40px;
+}
+.resource_wrapper .resource_tab li{
+    line-height:42px;
+    float:left;
+    height:39px;
+}
+.resource_wrapper .resource_tab li.active{
+    border-bottom:2px solid #c7181e;
+}
+.resource_wrapper .resource_tab li a{
+    color:#000;
+    line-height:20px;
+    height:20px;
+    font-size:12px;
+    margin:10px auto;
+    display: block;
+    padding:0px 20px;
+}
+.resource_wrapper .resource_tab li:not(:last-of-type) a{
+     border-right:1px solid #e6e6e6;
+}
+.resource_search,
+.spot_search{
+    border:2px solid #e6e6e6;
+    padding:15px 0;
+    margin:20px auto;
+    overflow:hidden;
+}
+.spot_search.spot_f1{
+    display: none;
+}
+.resource_search .resource_search_content,
+.spot_search .spot_search_content{
+    float:left;
+    margin-left:5px;
+}
+.resource_search .resource_search_content div,
+.spot_search .spot_search_content div{
+    float:left;
+    margin-left:20px;
+}
+.resource_search .resource_search_content div label,
+.spot_search .spot_search_content div label{
+    display: inline-block;
+    margin-right:10px;
+    font-size:12px;
+    line-height:25px;
+}
+.resource_search .resource_search_content input,
+.spot_search .spot_search_content input
+{
+    border:1px solid #e6e6e6;
+    height:22px;
+    width:105px;
+}
+.resource_search .resource_search_content select,
+.spot_search .spot_search_content select{
+     border:1px solid #e6e6e6;
+    height:27px;
+    width:85px;
+}
+.resource_search .resource_search_content div:last-of-type input{
+    width:235px;
+}
+.resource_search .resource-search_option,
+.spot_search .spot_search_option{
+    float:right;
+    margin-right:5px;
+}
+.resource_search .resource-search_option button,
+.spot_search .spot_search_option button{
+    padding:0 20px;
+    line-height:25px;
+    color:#fff;
+    border:none;
+    border-radius: 2px
+}
+.resource_search .resource-search_option button.search,
+.spot_search .spot_search_option button.search{
+    background-color: #ee7700;
+    margin-right:10px;
+}
+.resource_search .resource-search_option button.search img,
+.spot_search .spot_search_option button.search img{
+    height:20px;
+    margin-right:5px;
+    float:left;
+    margin-top:2px;
+}
+.resource_search .resource-search_option button.clear{
+    background-color: #c3c3c3;
+}
+.resource_showList .showList_header{
+    border:1px solid #e6e6e6;
+    background:#f7f7f7;
+    overflow: hidden;
+    border-bottom:2px solid #ee7700;
+}
+.resource_showList .showList_header li{
+    float:left;
+    font-size:14px;
+     padding:10px 20px;
+     cursor: pointer;
+}
+.resource_showList .showList_header li.active{
+    background:#ee7700;
+    color:#fff;
+    border:1px solid #ee7700;
+}
+.resource_showList .showList_header li.notice{
+    font-size:12px;
+    border-left:1px solid #e6e6e6;
+    line-height:20px;
+    cursor:default;
+}
+.resource_showList .showList_header li:last-of-type{
+    background:#ee7700;
+    height:20px;
+    color:#fff;
+    float:right;
+    padding:5px 20px;
+    margin:5px 10px 5px 0;
+    border-radius:2px;
+
+}
+.showList_content li{
+    width:1200px;
+    overflow: hidden;
+    border-bottom:1px solid #e6e6e6;
+    line-height:40px;
+}
+.showList_content li.showList_nav{
+    background: #f1f1f1;
+}
+.spot_showList .showList_content li.showList_nav{
+    border-top:2px solid #ee7700;
+}
+.showList_content .showList_1{
+    background:rgb(250,250,250);
+    border:1px solid #ee7700;
+}
+.resource_showList.f1 span{
+    float:left;
+    margin-right:80px;
+     padding:10px 0;
+}
+.resource_showList.f1 .checkwrap{
+    margin-right:10px;
+    margin-left:10px;
+}
+.resource_showList.f1 .company{
+    width:140px;
+    padding-left:0px;
+    text-align: left;
+}
+.resource_showList.f1 .uploader{
+    width:70px;
+    text-align: right;
+}
+.resource_showList.f1 .uploader button{
+    background:none;
+    border:none;
+    color:#f00;
+    padding:0;
+}
+.resource_showList.f1 .species{
+    width:130px;
+}
+.resource_showList.f1 .factory{
+    width:60px;
+}
+.resource_showList.f1 .resourceDes{
+     width:120px;
+}
+
+.resource_showList.f1 .uploadTime{
+    width:80px;
+    text-align: center;
+}
+.resource_showList.f1 .todayPrice{
+    width:60px;
+    text-align: center;
+    margin-right:20px;
+}
+.resource_showList.f1  p.notice{
+    width:1200px;
+    text-align:center;
+    clear:both;
+    padding:10px 0;
+    background: #f1f1f1;
+    color:#ee7700;
+    font-size:13px;
+}
+
+.resource_showList.f2 span{
+    float:left;
+    margin-right:40px;
+     padding:10px 0;
+}
+.resource_showList.f2 .checkwrap{
+    margin-right:10px;
+    margin-left:10px;
+}
+.resource_showList.f2 .company{
+    width:160px;
+}
+.resource_showList.f2 .uploader{
+    width:80px;
+    text-align: right;
+}
+.resource_showList.f2 .species{
+    
+    width:130px;
+    text-align: left;
+}
+.resource_showList.f2 .factory{
+   
+    width:60px;
+    text-align: left;
+}
+.resource_showList.f2 .resourceDes{
+   
+    width:120px;
+    text-align: left;
+}
+.resource_showList.f2 .downloadNum{
+    
+    width:60px;
+    text-align: center;
+}
+.resource_showList.f2 .uploadTime{
+   
+    width:60px;
+    text-align: center;
+}
+.resource_showList.f2 .todayPrice{
+    
+    width:60px;
+    text-align: center;
+}
+.resource_showList.f2 .download{
+    
+    width:60px;
+    text-align: center;
+    margin-right:10px;
+}
+.resource_btnList,
+.spot_btnList{
+    position:absolute;
+    bottom:0;
+    right:20px;
+}
+.resource_btnList button,
+.spot_btnList button{
+    background:#fff;
+    border:1px solid #e6e6e6;
+    font-size:12px;
+    padding:5px 10px;
+    outline: none;
+    margin:0 3px;
+}
+.resource_btnList .num_button.current,
+.spot_btnList .num_button.current{
+    background:#ee7700;
+    border:1px solid #ee7700;
+    font-size:12px;
+    padding:5px 10px;
+    outline: none;
+    color:#fff;
+}
+.resource_btnList .numPageInp,
+.spot_btnList .numPageInp{
+    width:30px;
+    border:1px solid #e6e6e6;
+}
+.resource_btnList .goNumPage,
+.spot_btnList .goNumPage{
+     background:#fff;
+    border:1px solid #e6e6e6;
+    font-size:12px;
+    padding:5px 10px;
+    outline: none;
+    margin:0 3px;
+}
+.resource_btnList .allNum,
+.spot_btnList .allNum{
+    background:#fff;
+    border:1px solid #e6e6e6;
+    font-size:12px;
+    padding:5px 10px;
+    outline: none;
+    margin:0 3px;
+}
+.spot_showList span{
+    margin-right:100px;
+    font-size:13px;
+    text-align: center;
+}
+.spot_showList .tradeName{
+    width:120px;
+    margin-left:20px;
+    text-align: center;
+}
+.spot_showList  .showList_toggle{
+    background:none;
+    border:1px solid #e1e1e1;
+    margin-right:5px;
+    outline: none;
+}
+.spot_showList .size{
+    width:140px;
+}
+.spot_showList .disassembleFactory{
+    width:100px;
+}
+.spot_showList .localcity{
+    width:100px;
+}
+.spot_showList .num{
+    width:100px;
+}
+.showList .showList_son{
+    display: block;
+    width:1190px;
+    margin:2px 5px;
+    border: 1px solid #ee7700;
+    float:left;
+    background: #fff;
+}
+.showList_son .tradeName{
+    width:110px;
+}
+.spot_showList .option_sel,
+.spot_showList .option_com{
+    width:100px;
+    margin-right:20px;
+}
+.spot_showList .option_sel button{
+    background:rgb(76,146,241);
+    border:none;
+    color:#fff;
+    padding:5px 20px;
+    border-radius: 2px;
+}
+.spot_showList .option_com button{
+    background:#f00;
+    border:none;
+    color:#fff;
+    padding:5px 20px;
+    border-radius: 2px;
+}
+.spot_f2 span,
+.showList_nav span{
+    margin-right:80px;
+    float:left;
+}
+.uploader button{
+    background: transparent;
+    border:none;
+    font-size:12px;
+    color:#f00;
+    /*display: block;*/
+    /*float:right;*/
+}
+.showList_nav{
+    background: #f7f7f7;  
+    overflow: hidden;
+    line-height: 40px;
+    border-top:2px solid #ee7700;
+}
+.showList_nav .species,
+.spot_f2 .species{
+    width:120px;
+    text-align: center;
+}
+.spot_f2  .showList_toggle{
+    background:none;
+    border:1px solid #e1e1e1;
+    margin-right:5px;
+    outline: none;
+}
+.spot_f2 .size,
+.showList_nav .size{
+    width:160px;
+}
+.spot_f2 .area,
+.showList_nav .area{
+    width:50px;
+}
+.spot_f2 .supplyNum,
+.showList_nav .supplyNum{
+    width:70px;
+}
+.spot_f2 .supplier,
+.showList_nav .supplier{
+    width:100px;
+}
+.spot_f2 .supplyTime,
+.showList_nav .supplyTime{
+    width:100px;
+}
+.spot_f2 .showList_son,
+.showList_nav .showList_son{
+    display: none;
+    width:1190px;
+    margin:2px 5px;
+    border: 1px solid #ee7700;
+    float:left;
+    background: #fff;
+}
+.spot_f2 .showList_son .species{
+    width:110px;
+}
+.follow_all{
+    position: absolute;
+    left:-50px;
+    top:0;
+    width:auto;
+    background: #fef3f0;
+    color:#000;
+    padding:10px 10px;
+    border-top:4px solid #ee7700;
+    writing-mode : vertical-lr;
+}
+.list-title-box{
+    width:100%;
+    height: 300px;
+}
+.list-title-box>.list-title-img{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    z-index:2000;
+}
+
+/*资源end*/

@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>资源</title>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/alert.css" />
+    <link rel="stylesheet" href="css/resource.css" />
+    <script src="lib/jquery.min.js"></script>
+    <script src="js/alert.js"></script>
+    <script src="js/resource.js"></script>
+
+</head>
+<body>
+	<!--header start-->
+<header>
+    <div class="top_bar">
+        <div class="left_top_bar fl">
+            <div class="welcome fl">城市矿山首页，欢迎来到城市矿山</div>
+            <div class="login fl"><a href="#">请登录</a></div>
+            <div class="register fl"><a href="#">免费注册</a> </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="right_top_bar fr">
+            <div class="nav_top_bar fl">
+                <ul>
+                    <li class="fl"><a href="#">我的城市矿山</a></li>
+                    <li class="fl"><a href="#">个人中心</a></li>
+                    <li class="fl"><a href="#">帮助中心</a></li>
+                    <li class="fl"><a href="#">在线客服</a></li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="tel_top_bar fl">
+                <div class="tel">400-0660-567（8：30-17：30）</div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="menu">
+        <div class="main_menu">
+            <div class="logo_menu fl">
+                <a href="#"><img src="images/logo_menu.png"></a>
+            </div>
+            <div class="nav_menu fr">
+                <ul>
+                    <li class="fl"><a href="index.html">首页</a></li>
+                    <li class="fl"><a href="steel.html">商城</a><i></i></li>
+                    <li class="fl current"><a href="resource.html">资源</a></li>
+                    <li class="fl"><a href="#">现货</a></li>
+                    <li class="fl"><a href="#">产品介绍</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</header>
+<!--header end-->
+
+<div class="resource_wrapper">
+	<div class="resource_tab">
+		<ul>
+			<li class="tab1 active"><a href="javascript:void(0)">废钢铁</a></li>
+			<li class="tab1"><a href="javascript:void(0)">废纸</a></li>
+			<li class="tab1"><a href="javascript:void(0)">废家电</a></li>
+		</ul>
+	</div>
+	<div class="resource_search">
+		<div class="resource_search_content">
+			<div>
+				<label for="factory">主营厂商</label>
+				<input type="text" id="factory">
+			</div>
+			<div>
+				<label for="species">主营品种</label>
+				<select name="" id="species">
+					<option value="">全部</option>
+				</select>
+			</div>
+			<div>
+				<label for="company">公司名</label>
+				<input type="text" id="company">
+			</div>
+		</div>
+		<div class="resource-search_option">
+
+			<button class="search" id="search"><img src="images/search_icon2.png" alt="">搜索</button>
+			<button class="clear">清空</button>
+			
+			
+		</div>
+	</div>
+	<div class="resource_showList f1" style="position: relative;">
+        <a href="javascript:void(0)" class="follow_all">批量关注</a>
+		<ul class="showList_header">
+			<li class="active">全部资源单</li>
+			<li class="myFollows">我关注的(0)</li>
+			<li class="notice">城市矿山仅提供免费发布渠道，并不对资源发布作任何审查。使用资源上传频道进行交易所存在的风险及产生的后果由您与发布者自行承担。</li>
+			<li>发布消息</li>
+		</ul>
+		
+        
+        <li class="showList_nav">
+            <span class="checkwrap"><input type="checkbox"></span>
+            <span class="company">公司名</span>
+            <span class="uploader">上传者</span>
+            <span class="species">主营品种</span>
+            <span class="factory">主营厂商</span>
+            <span class="resourceDes">资源单说明</span>
+            <span class="uploadTime">上传时间</span>
+            <span class="todayPrice">今日调价</span>
+        </li>
+		 <div class="list-title-box">
+                <img src="images/loading.gif" alt="" class="list-title-img">
+            </div>
+        <div id="showList_content" style="position: relative;">
+           
+        <ul class="showList_content spot_f1">
+            <li class="showList showList_1">
+                <span class="company">安微宁为电器有限公司</span>
+                <span class="uploader">
+                    冯正微
+                    <button>关注</button>
+                </span>
+                <span class="species">深冲冷卷,汽车钢,</span>
+                <span class="factory">武钢</span>
+                <span class="resourceDes">特价销售酸洗卷大量 到货1.6-6.0*1250/ 1500宝钢湛江。马钢  首钢 酸洗卷</span>
+                <span class="uploadTime">10:55</span>
+                <span class="todayPrice">平盘</span>
+                <p class="notice">此条消息为本人提供</p>           
+            </li>
+            
+            <li class="showList">
+                <span class="company">安微宁为电器有限公司</span>
+                <span class="uploader">
+                    冯正微
+                    <button>关注</button>
+                </span>
+                <span class="species">深冲冷卷,汽车钢,</span>
+                <span class="factory">武钢</span>
+                <span class="resourceDes">
+                    现货资源，款到发货， 可提异议。  
+                </span>
+                <span class="uploadTime">10:55</span>
+                <span class="todayPrice">平盘</span>
+            </li>
+            <li class="showList">
+                <span class="company">安微宁为电器有限公司</span>
+                <span class="uploader">
+                    冯正微
+                    <button>关注</button>
+                </span>
+                <span class="species">深冲冷卷,汽车钢,</span>
+                <span class="factory">武钢</span>
+                <span class="resourceDes">
+                    现货资源，款到发货， 可提异议。  
+                </span>
+                <span class="uploadTime">10:55</span>
+                <span class="todayPrice">平盘</span>
+            </li>
+
+
+        </ul>
+        </div>
+	</div>
+  
+	<div class="resource_btnList">
+       <!--  <button class="prePage">上一页</button> 
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button class="nextPage">下一页</button>  
+        <button class="allNum">共22页</button>
+        <button >末页</button>
+        到<input type="text">页
+        <input type="button" value="确定"> -->
+
+    </div>
+</div>
+
+<!--footer start-->
+<footer>
+    <section class="five_advantage">
+        <div class="main_five_advantage">
+            <div class="box_five_advantage fl">
+                <i class="advantage_1"></i>
+                <span>厂商直供</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="box_five_advantage fl">
+                <i class="advantage_2"></i>
+                <span>品种规格齐全</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="box_five_advantage fl">
+                <i class="advantage_3"></i>
+                <span>仓库加工一体</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="box_five_advantage fl">
+                <i class="advantage_4"></i>
+                <span>诚聘英才</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="box_five_advantage fl">
+                <i class="advantage_5"></i>
+                <span>帮助中心</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <section class="nav_footer">
+        <div class="main_nav_footer">
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">如何免费找货</a></li>
+                    <li><a href="#">资源单搜索</a></li>
+                    <li><a href="#">如何免费找车</a></li>
+                    <li><a href="#">拾起卖APP/微信</a></li>
+                </ul>
+            </div>
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">商城采购流程</a></li>
+                    <li><a href="#">如何支付</a></li>
+                    <li><a href="#">发票查询</a></li>
+                    <li><a href="#">售后服务</a></li>
+                </ul>
+            </div>
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">合作钢厂</a></li>
+                    <li><a href="#">商城与资源单区别</a></li>
+                    <li><a href="#">卖方资源上传</a></li>
+                    <li><a href="#">供应商合作洽谈</a></li>
+                    <li><a href="#">合作热线</a></li>
+                </ul>
+            </div>
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">拾起卖加工简介</a></li>
+                    <li><a href="#">委托加工的优势</a></li>
+                    <li><a href="#">可委托加工的类型</a></li>
+                    <li><a href="#">找材料仓库服务信息</a></li>
+                    <li><a href="#">意见与建议</a></li>
+                </ul>
+            </div>
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">拾起卖简介</a></li>
+                    <li><a href="#">拾起卖融资申请流程</a></li>
+                    <li><a href="#">如何使用拾起卖融资</a></li>
+                    <li><a href="#">如何还款</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <section class="other_footer">
+        <div class="main_other_footer">
+            <div class="nav_main_other_footer">
+                <ul>
+                    <li class="fl"><a href="#">关于我们</a> </li>
+                    <li class="fl"><a href="#">诚聘英才</a> </li>
+                    <li class="fl"><a href="#">联系我们</a> </li>
+                    <li class="fl"><a href="#">常见问题</a> </li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="side_footer">城市矿山官方网站  <a href="#">www.citymine.com .cn</a>  备案号 津ICP 17003801-1 </div>
+            <div class="certificate_footer">
+                2015-2016年度钢材市场优秀示范企业   2016年度国家重点扶持项目  中国再生资源示范企业  2015年中国大宗商品现代流通诚信市场
+            </div>
+        </div>
+    </section>
+</footer>
+<!--footer end-->
+<script>
+	
+	
+</script>
+</body>
+</html>

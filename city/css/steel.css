@@ -1,0 +1,279 @@
+/***lixiaObo***/
+/**商城废钢铁**/
+.waste-wrap{
+	width:1200px;
+	margin: 0 auto;
+}
+.waste-title{
+	width: 1200px;
+	margin: 0 auto;
+	line-height: 45px;
+	border-bottom: 1px solid #ccc;
+	font-size: 16px;
+}
+.waste-title ul:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.waste-title li{
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	padding: 0 20px;
+}
+
+.waste-title span{
+	display: block;
+	width: 1px;
+	height: 20px;
+	background: #CCCCCC;
+	float: left;
+	margin-top:13px;
+}
+.waste-search{
+	width: 1200px;
+	margin: 0 auto;
+	border: 1px solid #CCCCCC;
+	margin-top: 20px;
+	font-size: 14px;
+	box-sizing:border-box;
+	padding: 25px 15px;
+}
+.waste-search input[type=text]{
+	width: 95px;
+}
+.ipt-brand{
+	width: 100px !important;
+}
+.waste-search select,.waste-search input{
+	margin-right: 20px;
+}
+.waste-search span{
+	display: inline-block;
+	margin-right: 5px;
+}
+.waste-search button{
+	width: 105px;
+	line-height: 25px;
+	background: rgb(222,110,0);
+	text-align: center;
+	border: none;
+	outline: none;
+	color: white;
+	border-radius: 2px;
+	margin-left: 150px;
+	float:right;
+}
+.list-title-wrap{
+	width: 1200px;
+	margin: 0 auto;
+	display: block;
+}
+.list-title-wrap:after{
+	content:"";
+	display:  block;
+	clear: both;
+}
+.list-title{
+	width: 1200px;
+	line-height: 30px;
+	margin: 20px auto 0;
+	font-size: 14px;
+	border-bottom: 3px solid #CCCCCC;
+	display: block;
+}
+.list-title:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.list-title div{
+	width: 120px;
+	text-align: center;
+	float: left;
+}
+.choose div{
+	width: 50px !important;
+	height: 28px;
+	background: rgb(240,175,101);
+	margin: 0 auto;
+	margin-top: 11px;
+	line-height: 28px !important;
+	cursor:pointer;
+	float: none !important;
+	color: white;
+}
+#bluecolor div{
+	color: blue;
+}
+#redcolor div{
+	color:red;
+}
+.waste-data{
+	text-align: center;
+	line-height: 50px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.waste-data:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.waste-data div{
+	width: 120px;
+	text-align: center;
+	float: left;
+	min-height: 1px;
+}
+.paging{
+	width: 1200px;
+	margin: 25px auto 100px;
+}
+.paging:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.paging ul{
+	/*width: 620px;*/
+	display: flex;
+	justify-content: space-between;
+	display: -webkit-box;
+	-webkit-box-pack: justify;
+	line-height: 26px;
+	text-align: center;
+	float: right;
+	margin-right: 15px;
+}
+.paging li{
+	margin-right: 15px;
+	cursor: pointer;
+}
+.paging-num{
+	width: 30px;
+
+	box-sizing:border-box;
+	border: 1px solid #CCCCCC;
+	cursor: pointer;
+	
+}
+.num-ipt{
+	width: 40px;
+}
+.paging-numa{
+	border: 1px solid #CCCCCC;
+	padding: 0 5px;
+	cursor: pointer;
+}
+.paging-btn{
+	border: 1px solid #CCCCCC;
+	padding: 0 15px;
+}
+.ranking-header{
+	height: 40px !important;
+}
+.ranking-banner{
+	width: 100%;
+	max-height: 450px;
+}
+.ranking-banner img{
+	width: 100%;
+	height: 100%;
+	max-height: 450px;
+}
+.list-title1{
+	width:1200px;
+	margin: 0 auto;
+	display: none;
+}
+.list-title1{
+	width: 1200px;
+	line-height: 30px;
+	margin: 20px auto 0;
+	font-size: 14px;
+	border-bottom: 3px solid #CCCCCC;
+}
+.list-title1:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.list-title1 div{
+	width: 133.33px;
+	text-align: center;
+	float: left;
+}
+.list-title-wrap1{
+	width: 1200px;
+	margin: 0 auto;
+	display: none;
+}
+.list-title-wrap1:after{
+	content:"";
+	display:  block;
+	clear: both;
+}
+.waste-data1{
+	text-align: center;
+	line-height: 50px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.waste-data1:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.waste-data1 div{
+	width: 133.33px;
+	text-align: center;
+	float: left;
+	overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+min-height: 1px;
+}
+.choose1 div{
+	width: 50px !important;
+	height: 28px;
+	background: rgb(240,175,101);
+	margin: 0 auto;
+	margin-top: 11px;
+	line-height: 28px !important;
+	cursor:pointer;
+	float: none !important;
+}
+.btnList_content{
+	float: right;
+	margin-right: 35px;
+}
+.numPageInp{
+	width: 50px;
+}
+.hang{
+	display: inline-block;
+	
+}
+.hang button{
+	width:38px;
+	background: white;
+	border: 1px solid #CCCCCC;
+	margin-right: 10px;
+}
+.hang button:last-child{
+	margin-right: 0px;
+}
+.prePage,.nextPage{
+	width: 70px;
+	background: white;
+	border: 1px solid #CCCCCC;
+}
+.goNumPage{
+	background: white;
+	border: 1px solid #CCCCCC;
+}
+.loading_pic{
+	text-align: center;
+	margin: 100px 0;
+}

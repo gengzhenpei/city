@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>上传资料单v2.0</title>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/upload.css" />
+</head>
+<body>
+<!--header start-->
+<header>
+    <div class="top_bar">
+        <div class="left_top_bar fl">
+            <div class="welcome fl">城市矿山首页，欢迎来到城市矿山</div>
+            <div class="login fl"><a href="#">请登录</a></div>
+            <div class="register fl"><a href="#">免费注册</a> </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="right_top_bar fr">
+            <div class="nav_top_bar fl">
+                <ul>
+                    <li class="fl"><a href="#">我的城市矿山</a></li>
+                    <li class="fl"><a href="#">个人中心</a></li>
+                    <li class="fl"><a href="#">帮助中心</a></li>
+                    <li class="fl"><a href="#">在线客服</a></li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="tel_top_bar fl">
+                <div class="tel">400-0660-567（8：30-17：30）</div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="menu">
+        <div class="main_menu">
+            <div class="logo_menu fl">
+                <a href="#"><img src="images/logo_menu.png"></a>
+            </div>
+            <div class="nav_menu fr">
+                <ul>
+                    <li class="fl"><a href="#">首页</a></li>
+                    <li class="fl"><a href="#">商城</a><i></i></li>
+                    <li class="fl current"><a href="#">资源</a></li>
+                    <li class="fl"><a href="#">现货</a></li>
+                    <li class="fl"><a href="#">产品介绍</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</header><!--header end-->
+
+<section class="main">
+    <div class="title_upload_v2">请为该资源完善信息后保存发布</div>
+    <div class="content_upload_v2">
+        <div class="fillin">
+            <dl>
+                <dt><span>*</span>资源单名称</dt>
+                <dd>
+                    <input id="ziyuandanmingcheng" type="text" placeholder="请输入资源单名称">
+                </dd>
+            </dl>
+
+            <dl>
+                <dt><span>*</span>公司名称</dt>
+                <dd>
+                    <input id="gongsimingcheng" type="text" disabled="disabled" value="">
+                </dd>
+            </dl>
+
+            <dl>
+                <dt><span>*</span>地区</dt>
+                <dd>
+                    <select id="selCityOption">
+                        <option value="SHANGHAI">上海</option>
+                        <option value="WUXI">无锡</option>
+                        <option value="HANGZHOU">杭州</option>
+                        <option value="NANJING">南京</option>
+                        <option value="NINGBO">宁波</option>
+                        <option value="WUHAN">武汉</option>
+                        <option value="LECONG">乐从</option>
+                        <option value="ZHENGZHOU">郑州</option>
+                        <option value="TIANJIN" selected="selected">天津</option>
+                    </select>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt><span>*</span>今日调价</dt>
+                <dd>
+                    <select id="selAdjustPriceOption">
+                        <option value="0">请选择调价</option>
+                        <option value="上调10" selected="selected">↑上调10</option>
+                        <option value="上调20">↑上调20</option>
+                        <option value="上调50">↑上调50</option>
+                        <option value="下调10">↓下调10</option>
+                        <option value="下调20">↓下调20</option>
+                        <option value="下调50">↓下调50</option>
+                        <option value="平盘">→平盘</option>
+                    </select>
+                    <span style="font-size:12px;">您今日资源调价幅度（相比上一个交易日）</span>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt><span>*</span>产品描述</dt>
+                <dd>
+                    <textarea id="txtRemark" data="" placeholder="对你今天的价格变化、优势资源、货物状态等用文字补充说明，可增加你资源单的吸引力。字数限定在80字以内。"></textarea>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt><span>*</span>分类</dt>
+                <dd>
+                    <input type="checkbox" name="topCategory" value="1" factory="主营厂商1,主营厂商2" category="主营品种1,主营品种2"><label>钢材</label>
+                    <input type="checkbox" name="topCategory" value="2" factory="主营厂商1,主营厂商2" category="主营品种1,主营品种2"><label>纸</label>
+                    <input type="checkbox" name="topCategory" value="3" factory="主营厂商1,主营厂商2" category="主营品种1,主营品种2"><label>家电</label>
+                </dd>
+            </dl>
+
+            <dl style="" id="categorylist">
+                <dt>产品属性</dt>
+                <dd class="dalei">
+                    <table id="categoryTable">
+                        <tbody>
+                        <tr>
+                            <th style="width: 18%">大类</th>
+                            <td style="width: 41%">主营品种</td>
+                            <td style="width: 41%">主营厂商</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </dd>
+                <p><i class="sigh"></i>经常更新属性，能让客户更快找到你</p>
+            </dl>
+
+            <dl>
+                <dt><span></span></dt>
+                <dd>
+                    <button id="submit_upload_data_v2" class="submit_upload_data_v2">发布资源</button>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<!--footer start-->
+<footer>
+    <section class="five_advantage">
+        <div class="main_five_advantage">
+            <div class="box_five_advantage fl">
+                <i class="advantage_1"></i>
+                <span>厂商直供</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="box_five_advantage fl">
+                <i class="advantage_2"></i>
+                <span>品种规格齐全</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="box_five_advantage fl">
+                <i class="advantage_3"></i>
+                <span>仓库加工一体</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="box_five_advantage fl">
+                <i class="advantage_4"></i>
+                <span>诚聘英才</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="box_five_advantage fl">
+                <i class="advantage_5"></i>
+                <span>帮助中心</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <section class="nav_footer">
+        <div class="main_nav_footer">
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">如何免费找货</a></li>
+                    <li><a href="#">资源单搜索</a></li>
+                    <li><a href="#">如何免费找车</a></li>
+                    <li><a href="#">拾起卖APP/微信</a></li>
+                </ul>
+            </div>
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">商城采购流程</a></li>
+                    <li><a href="#">如何支付</a></li>
+                    <li><a href="#">发票查询</a></li>
+                    <li><a href="#">售后服务</a></li>
+                </ul>
+            </div>
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">合作钢厂</a></li>
+                    <li><a href="#">商城与资源单区别</a></li>
+                    <li><a href="#">卖方资源上传</a></li>
+                    <li><a href="#">供应商合作洽谈</a></li>
+                    <li><a href="#">合作热线</a></li>
+                </ul>
+            </div>
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">拾起卖加工简介</a></li>
+                    <li><a href="#">委托加工的优势</a></li>
+                    <li><a href="#">可委托加工的类型</a></li>
+                    <li><a href="#">找材料仓库服务信息</a></li>
+                    <li><a href="#">意见与建议</a></li>
+                </ul>
+            </div>
+            <div class="box_nav_footer fl">
+                <ul>
+                    <li><a href="#">拾起卖简介</a></li>
+                    <li><a href="#">拾起卖融资申请流程</a></li>
+                    <li><a href="#">如何使用拾起卖融资</a></li>
+                    <li><a href="#">如何还款</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <section class="other_footer">
+        <div class="main_other_footer">
+            <div class="nav_main_other_footer">
+                <ul>
+                    <li class="fl"><a href="#">关于我们</a> </li>
+                    <li class="fl"><a href="#">诚聘英才</a> </li>
+                    <li class="fl"><a href="#">联系我们</a> </li>
+                    <li class="fl"><a href="#">常见问题</a> </li>
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+            <div class="side_footer">城市矿山官方网站  <a href="#">www.citymine.com.cn</a>  备案号 津ICP 17003801-1 </div>
+            <div class="certificate_footer">
+                2015-2016年度钢材市场优秀示范企业   2016年度国家重点扶持项目  中国再生资源示范企业  2015年中国大宗商品现代流通诚信市场
+            </div>
+        </div>
+    </section>
+</footer>
+
+
+<!--footer end-->
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/ajaxupload.js"></script>
+<script type="text/javascript" src="js/upload.js"></script>
+</body>
+</html>

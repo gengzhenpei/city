@@ -1,0 +1,21 @@
+[
+  {
+    "content": [
+      {
+        "resourceId": "1",
+        "resourceName": "资源单名称1",
+        "updataTime": "2017-8-31 10:30",
+        "companyName": "公司名称1",
+        "localCity": "地区1",
+        "todayPrice": "今日调价1",
+        "produceDes": "产品描述1产品描述1产品描述1产品描述1产品描述1产品描述1产品描述1产品描述1产品描述1产品描述1产品描述1产品描述1产品描述1",
+        "topCategoryId": "所属分类1（钢材）",
+        "mainKind": "主营品种1",
+        "mainManufacturer": "主营钢厂1"
+      }
+    ],
+    "count": 7,
+    "message": "",
+    "ret": 0
+  }
+]

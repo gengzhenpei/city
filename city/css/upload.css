@@ -1,0 +1,193 @@
+/*填写资料*/
+.fillin{
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.fillin > dl{
+    font-size: 14px;
+    clear: both;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.fillin dl dt{
+    width: 80px;
+    float: left;
+    text-align: right;
+    margin-right: 4px;
+    color: #999;
+    line-height: 2.5;
+}
+
+.fillin dl dt span{
+    color: #e72830;
+    margin-right: 2px;
+}
+
+.fillin dl dd{
+    float: left;
+    margin-left: 5px;
+    line-height: 2.5;
+}
+
+.fillin dl dd select{
+    min-width: 100px;
+}
+
+.fillin dl dd span{
+    color: #999;
+    margin-left: 10px;
+}
+
+.fillin dl dd textarea{
+    width: 444px;
+    height: 88px;
+    border: 1px solid #d3d3d3;
+    resize: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.fillin dl dd label{
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.fillin dl dd b{
+    color: #e42a2d;
+    font-weight: normal;
+}
+
+.fillin dl dd table {
+    text-align:center;
+    border-collapse:collapse;
+}
+.fillin dl dd td, .fillin dl dd th {
+    padding:8px;
+    font-size:12px;
+    border:1px dotted #ccc;
+    border-width:0 0 1px 0;
+    margin:2px 0 2px 0;
+    text-align:left;
+}
+
+.fillin dl dd th {
+    font-size: 12px;
+    text-align:center;
+    font-weight:600;
+    color: #000;
+}
+
+.fillin dl dd input[type="text"]{
+    border: 1px solid #ccc;
+    width: 152px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 5px;
+    outline: none;
+    border-radius: 3px;
+    -webkit-border-radius:3px;
+    -ms-border-radius:3px;
+    -moz-border-radius:3px;
+}
+
+.fillin dl dd input[type="text"]:focus{
+    border: 1px solid #39b7f2;
+}
+
+.fillin dl dd tr.nobottom td, .fillin dl dd tr.nobottom th{
+    border-bottom: none;
+}
+
+.fillin dl dd ul{
+
+}
+
+.fillin dl dd ul li{
+    background: #f2f2f2;
+    padding: 0 12px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 3px;
+    -webkit-border-radius:3px;
+    -ms-border-radius:3px;
+    -moz-border-radius:3px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.fillin dl dd ul li:hover{
+    background: #e3282f;
+    color: #FFF;
+}
+
+.fillin dl dd ul li.on{
+    background: #c7b9b8;
+    color: #FFF;
+}
+
+
+.fillin dl p{
+    clear: both;
+    padding-top: 10px;
+    margin-left: 82px;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.fillin dl p i.sigh{
+    background-position:-26px 0;
+    width: 16px;
+    height: 16px;
+    top:3px;
+    margin-right: 3px;
+}
+
+.uploadBox .leftBox .release{
+    width:180px;
+    margin: 30px auto 0;
+}
+
+.uploadBox .leftBox .release button{
+    width:180px;
+    height: 38px;
+    border: none;
+    outline: none;
+    background: #c7181f;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    -ms-border-radius:5px;
+    -moz-border-radius:5px;
+    font-size: 16px;
+    color: #FFF;
+}
+
+.fillin select{
+    height: 30px;
+    border: solid 1px #d3d3d3;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.dalei{
+    width: 464px;
+    border: solid 1px #fdccac;
+    border-radius: 5px;
+    background: #fafafa;
+}
+
+#firstUploadBtn{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}

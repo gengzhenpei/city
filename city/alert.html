@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>alertTemplate</title>
+	<!--[if lt IE 9]>
+	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/alert.css">
+
+</head>
+<body>
+	<button class="alert-api-button alert-shanchuziyuandan">删除资源单</button>
+	<button class="alert-api-button alert-xiugaichenggong">修改成功</button>
+
+</body>
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script src='lib/alert.js'></script>
+<script>
+	var M = {};
+	$(document).delegate(".alert-shanchuziyuandan",'click',function(){
+		if(M.dialog3){
+			return M.dialog3.show();
+		}
+		M.dialog3 = jqueryAlert({
+            'style'   : 'pc',
+            'width':'410',
+            'height' : "175",
+			'content' : '<div class="ico_alert fl"><img src="images/alert-!.png"></div>' +
+			'<div class="content_alert fl">' +
+			'<div class="title_alert">删除资源单？</div>' +
+			'</div>' +
+			'<div class="clearfix"></div>',
+			'modal'   : true,
+			'buttons' :{
+				'确定' : function(){
+					alert(111);
+				},
+				'取消' : function () {
+					M.dialog3.close();
+                }
+			}
+		});
+        var buttonsLength = $('.alert-btn-p').length;
+		if(buttonsLength == 1){
+			$('.alert-btn-p').css({
+				"color":"#6e6e6e",
+				"border":"solid 1px #ddd",
+				"background":"#eee"
+			})
+			$('.alert-btn-box').css({
+			    "paddingLeft":"120px"
+			})
+		}
+	});
+
+
+
+	$(document).delegate(".alert-xiugaichenggong",'click',function(){
+		if(M.dialog3){
+			return M.dialog3.show();
+		}
+		M.dialog3 = jqueryAlert({
+			'style'   : 'pc',
+			'width':'410',
+			'height' : "175",
+			'content' : '<div class="ico_alert fl"><img src="images/alert-!.png"></div>' +
+			'<div class="content_alert fl">' +
+			'<div class="title_alert">修改成功</div>' +
+			'</div>' +
+			'<div class="clearfix"></div>',
+			'modal'   : true,
+			'buttons' :{
+				'关闭' : function () {
+					M.dialog3.close();
+				}
+
+			}
+		});
+		var buttonsLength = $('.alert-btn-p').length;
+		if(buttonsLength == 1){
+			$('.alert-btn-p').css({
+				"color":"#6e6e6e",
+				"border":"solid 1px #ddd",
+				"background":"#eee"
+			})
+			$('.alert-btn-box').css({
+				"paddingLeft":"120px"
+			})
+		}
+	});
+
+</script>
+</html>
