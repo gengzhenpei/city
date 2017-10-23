@@ -31,6 +31,13 @@ var spot={
         })
     },
     getSpot:function (dataObj){
+    	//手机号中间显示星号
+    	function telNum(tel){
+				tel = tel.toString();
+				var mtel = tel.substr(0, 3) + '****' + tel.substr(7);
+				return mtel;
+			};
+			
         $('.list-title-box').show()
         var self=this;
         console.log(dataObj)
@@ -47,7 +54,7 @@ var spot={
                     self.allNum=data[0].count;
                     $ul=$("<ul class='showList_content spot_f2'></ul>")
                     $(data[0].content).each(function(){
-
+						$(this)[0].supplier = telNum($(this)[0].supplier);
                         $showList=$('<li class="showList ">'
                             +'<span class="species"><button class="showList_toggle" data-state=true>+</button>'+$(this)[0].species+'</span>'
                             +'<span class="size">'+$(this)[0].size+'</span>'

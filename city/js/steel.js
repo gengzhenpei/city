@@ -199,7 +199,7 @@ $(function() {
 							$('.pageg').html(preliminary.dataObj.numPerPage); //共多少页
 							$('.waste-search').html("");
 							$('.hang button').eq(0).css('background', 'rgb(240,175,101)');
-							$('.waste-search').append('<select class="whole-country"><option value="">请选择</option></select><span>品种</span><select class="Varieties"><option value="">请选择</option></select><span>材质</span><input type="text" class="cz" /><span>钢厂</span><input type="text" class="gc" /><span>仓库</span><input type="text" class="ck" /><button>找货</button>');
+							$('.waste-search').append('<span>所在地</span><select class="whole-country"><option value="">请选择</option></select><span>品名</span><select class="Varieties"><option value="">请选择</option></select><span>材质</span><input type="text" class="cz" /><span>需求方</span><input type="text" class="gc" /><span>仓库</span><input type="text" class="ck" /><button>找货</button>');
 							$('.Varieties').append('<option value="重型废钢">重型废钢</option><option value="统料废钢">统料废钢</option><option value="中型废钢">中型废钢</option><option value="薄型废钢">薄型废钢</option><option value="小型废钢">小型废钢</option>');
 							$('.whole-country').append('<option value="TIANJIN">天津市</option><option value="BEIJING">北京市</option><option value="SHANGHAI">上海市</option><option value="GUANGZHOU">广州市</option><option value="SHENZHEN">深圳市</option><option value="SHIJIAZHUANG">石家庄</option>')
 							$('.Varieties').val(preliminary.dataObj.tradeName ? preliminary.dataObj.tradeName : "");
@@ -245,7 +245,7 @@ $(function() {
 							$('.pageg').html(preliminary.dataObj.numPerPage); //共多少页
 							$('.waste-search').html("");
 							$('.hang button').eq(0).css('background', 'rgb(240,175,101)');
-							$('.waste-search').append('<select class="whole-country"><option value="">请选择</option></select><span>品种</span><select class="household-electrical-appliances"><option value="">请选择</option></select><span>规格</span><select class="gui"><option value="">请选择</option></select><span>拆解厂</span><input type="text" class="cj" /><button>找货</button>')
+							$('.waste-search').append('<span>所在地</span><select class="whole-country"><option value="">请选择</option></select><span>品种</span><select class="household-electrical-appliances"><option value="">请选择</option></select><span>规格</span><select class="gui"><option value="">请选择</option></select><span>拆解企业名称</span><input type="text" class="cj" /><button>找货</button>')
 							$('.household-electrical-appliances').append('<option value="废旧洗衣机">废旧洗衣机</option><option value="废旧电冰箱">废旧电冰箱</option><option value="废旧空调器">废旧空调器</option><option value="废旧计算机">废旧计算机</option><option value="废旧电冰柜">废旧电冰柜</option><option value="废旧电视机">废旧电视机</option>');
 							$('.whole-country').append('<option value="TIANJIN">天津市</option><option value="BEIJING">北京市</option><option value="SHANGHAI">上海市</option><option value="GUANGZHOU">广州市</option><option value="SHENZHEN">深圳市</option><option value="SHIJIAZHUANG">石家庄</option>')
 							$('.whole-country').val(preliminary.dataObj.localCity ? preliminary.dataObj.localCity : "");
@@ -329,7 +329,7 @@ $(function() {
 							$('.pageg').html(preliminary.dataObj.numPerPage); //共多少页
 							$('.waste-search').html("");
 							$('.hang button').eq(0).css('background', 'rgb(240,175,101)');
-							$('.waste-search').append('<select class="whole-country"><option value="">全国</option></select><span>品种</span><select class="Varieties"></select><span>材质</span><input type="text" class="cz" /><span>钢厂</span><input type="text" class="gc" /><span>仓库</span><input type="text" class="ck" /><button>找货</button>')
+							$('.waste-search').append('<span>所在地</span><select class="whole-country"><option value="">全国</option></select><span>品名</span><select class="Varieties"></select><span>材质</span><input type="text" class="cz" /><span>钢厂</span><input type="text" class="gc" /><span>仓库</span><input type="text" class="ck" /><button>找货</button>')
 							$('.Varieties').append('<option value="重型废钢">重型废钢</option><option value="统料废钢">统料废钢</option><option value="中型废钢">中型废钢</option><option value="薄型废钢">薄型废钢</option><option value="小型废钢">小型废钢</option>');
 							$('.whole-country').append('<option value="TIANJIN">天津市</option><option value="BEIJIN">北京市</option><option value="SHANGHAI">上海市</option><option value="GUANGZHOU">广州市</option><option value="SHENZHEN">深圳市</option><option value="SHIJIAZHUANG">石家庄</option>')
 							$('.Varieties').val(preliminary.dataObj.tradeName ? preliminary.dataObj.tradeName : "");

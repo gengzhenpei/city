@@ -2,6 +2,7 @@ var resource = {
 	allNum: 0,
 	userId: "327b4305c23342939b0659fa10ac3eab",
 	dataObj: {
+		factoryList: '',
 		attentionFlag: 0,
 		type: 1,
 		species: "",
@@ -573,7 +574,7 @@ $(function() {
 	//搜索功能
 	$("#search").click(function() {
 		resource.dataObj.species = $("#species").val()
-		resource.dataObj.factory = $("#factory").val()
+		resource.dataObj.factoryList = $("#factory").val()
 		resource.dataObj.companyName = $("#company").val()
 		if(resource.dataObj.type == 1) {
 			resource.dataObj.type = 1
@@ -617,6 +618,7 @@ $(function() {
 			'buttons': {
 				'确定': function() {
 					resource.unfollow()
+					
 					M.dialog3.close();
 				},
 				'取消': function() {

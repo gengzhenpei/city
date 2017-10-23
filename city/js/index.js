@@ -171,7 +171,7 @@ var home = {
 					// type: 'spline'
 				},
 				title: {
-					text: '废钢铁指数',
+					text: '废钢铁指数（元/吨）',
 					align: 'left',
 					style: {
 						fontSize: '17px'
@@ -241,7 +241,7 @@ var home = {
 				// type: 'spline'
 			},
 			title: {
-				text: '废纸指数',
+				text: '废纸指数（元/吨）',
 				align: 'left',
 				style: {
 					fontSize: '17px'
@@ -343,7 +343,7 @@ var home = {
 					type: 'column'
 				},
 				title: {
-					text: '废家电指数',
+					text: '废家电指数（元/台）',
 					align: 'left',
 					style: {
 						fontSize: '17px'
@@ -468,7 +468,7 @@ var home = {
 					'钢铁' +
 					'</span>' +
 					'<span class="main_result_zuo">' +
-					'昨日成交' +
+					'成交量' +
 					'</span>' +
 					'</p>' +
 					'<p class="main_result_parent">' +
@@ -483,7 +483,7 @@ var home = {
 					'纸' +
 					'</span>' +
 					'<span class="main_result_zuo">' +
-					'昨日成交' +
+					'成交量' +
 					'</span>' +
 					'</p>' +
 					'<p class="main_result_parent">' +
@@ -512,8 +512,9 @@ var home = {
 			success: function(res) {
 				$("body").removeClass("hao-loading");
 				var data = res[0].content;
+				console.log('data', data)
 				var dataArr = [];
-				dataArr = data[0].speciesList;
+				dataArr = data[2].speciesList;
 				if(dataArr.length == 0) {
 					$('#swiper-container4').empty().append('<img class="nodata_img" src="images/nodata.jpg"/>');
 					return;
@@ -561,12 +562,13 @@ var home = {
 
 						//添加div中数据
 						$(this.sizeList).each(function(index) {
+							
 							$str1 = $('<p class="flex_type">' +
 								'<span class="flex_chicun">' +
 								this.size +
 								'</span>' +
 								'<span class="flex_num">' +
-								this.price +
+								this.price.toFixed(2) +
 								'元/台</span>' +
 								'</p>');
 							$divBtn1_con.append($str1);
@@ -576,7 +578,7 @@ var home = {
 									this.size +
 									'</span>' +
 									'<span class="flex_num">' +
-									this.price +
+									this.price.toFixed(2) +
 									'元/台</span>' +
 									'</p>');
 
