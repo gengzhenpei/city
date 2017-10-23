@@ -119,8 +119,8 @@ var home = {
 						$main_list_flex = $('' +
 							'<div class="main_list_flex">' +
 							'<p class="main_list_money">' +
-							'<span class="main_list_red">' + this.avg.toFixed(2) + '</span>' +
-							'<span>元</span>' +
+							'<span class="main_list_red">' + parseInt(this.avg) + '</span>' +
+							'<span>&nbsp元</span>' +
 							'</p>'
 							// +'<p class="main_list_num">'
 							// +'<span>'
@@ -349,7 +349,9 @@ var home = {
 						fontSize: '17px'
 					},
 					y: 6
+					
 				},
+
 				xAxis: {
 					type: 'categories',
 					categories: xAxisLable
@@ -388,9 +390,8 @@ var home = {
 				},
 				series: [{
 					name: '<b style="color:#333333;font-weight:100;font-size:15px">家电</b>',
-
-					data: dataArr
-				}, ],
+					data: dataArr,
+				} ],
 				navigation: {
 					menuItemStyle: {
 						fontSize: '10px'
@@ -514,7 +515,7 @@ var home = {
 				var data = res[0].content;
 				console.log('data', data)
 				var dataArr = [];
-				dataArr = data[2].speciesList;
+				dataArr = data[0].speciesList;
 				if(dataArr.length == 0) {
 					$('#swiper-container4').empty().append('<img class="nodata_img" src="images/nodata.jpg"/>');
 					return;
@@ -569,7 +570,7 @@ var home = {
 								'</span>' +
 								'<span class="flex_num">' +
 								this.price.toFixed(2) +
-								'元/台</span>' +
+								'&nbsp元/台</span>' +
 								'</p>');
 							$divBtn1_con.append($str1);
 							if(index < 2) {
@@ -579,7 +580,7 @@ var home = {
 									'</span>' +
 									'<span class="flex_num">' +
 									this.price.toFixed(2) +
-									'元/台</span>' +
+									'&nbsp元/台</span>' +
 									'</p>');
 
 								$flex_item.append($flex_item_content)
