@@ -1,7 +1,7 @@
 var spot={
     allNum:0,
     dataObj:{
-        type:2,
+        type:1,
         // tradeName:"",
         // size:"",
         numPerPage:20,
@@ -41,7 +41,7 @@ var spot={
             timeout:10000,
             data:dataObj,
             success:function(data){
-                console.log(data[0])
+                console.log('a',data[0])
                 if(data[0].ret==0){
                     $('.list-title-box').hide()
                     self.allNum=data[0].count;
@@ -171,17 +171,30 @@ var spot={
         $btnList_content.append($('<label>到</label><input class="numPageInp" type="text"><label>页</label>'
                                         +'<input type="button" class="goNumPage" value="确定">'))
         $(".spot_btnList").html($btnList_content)
+    },
+    clearButton: function(){
+    	$('.clear').on('click', function(){
+    		$('#area').val('');
+    		$('#type').val('');
+    		$('#species').val('');
+    		$('#size').val('');
+    		
+    	})
     }
+    
 }
+
 $(function(){
     // $flag=true;
     spot.getSize()    //得到品种
     $("#species").change(spot.getSize)
+    console.log('spot.dataObj', spot.dataObj)
     spot.getSpot(spot.dataObj)   //废家电数据
     
     $("#search").click(function(){
         spot.dataObj.tradeName=$("#species").val(),
         spot.dataObj.size=$("#size").val(),    
         spot.getSpot(spot.dataObj)
-    })
+    });
+    spot.clearButton();
 })

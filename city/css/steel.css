@@ -277,3 +277,21 @@ min-height: 1px;
 	text-align: center;
 	margin: 100px 0;
 }
+
+.waste-data div:nth-child(2), .waste-data div:nth-child(3), .waste-data div:nth-child(4){
+	color: blue;
+}
+.waste-data div:nth-child(8), .waste-data div:nth-child(9), .waste-data1 div:nth-child(7){
+	color: red;
+}
+.waste-data1 div:nth-child(2), .waste-data1 div:nth-child(3), .waste-data1 div:nth-child(4){
+	color: blue;
+}
+.bottom_border_red{
+	color: rgb(179,21,24);
+	border-bottom: 2px solid rgb(179,21,24);
+}
+.list-title-box{
+	text-align: center;
+	margin: 100px 0;
+}

@@ -1,9 +1,9 @@
 //钢铁 纸 家电品名改变从后台获取规格数据
 $('#product_ming2').change(function() {
 	var va = $(this).val();
-	if(va==''){
+	if(va == '') {
 		home.selSearch();
-	}else{
+	} else {
 		$.ajax({
 			type: "post",
 			url: "http://47.93.102.34:8088/cmscm/webshop/showSizeAp",
@@ -35,133 +35,127 @@ var home = {
 			url: "http://47.93.102.34:8088/cmscm/webshop/showSizeAp",
 			async: true,
 			data: {
-				"species": '废旧洗衣机'
+				"species": ''
 			},
 			success: function(ags) {
 				var Data = ags[0].content;
 				$('.gui').html("");
 				$('.gui').append('<option value="">请选择</option>');
-				for(var i = 0; i < Data.length; i++) {
-					$('.gui').append('<option value="' + Data[i] + '">' + Data[i] + '</option>');
-				}
+				//				for(var i = 0; i < Data.length; i++) {
+				//					$('.gui').append('<option value="' + Data[i] + '">' + Data[i] + '</option>');
+				//				}
 			}
 		});
 	},
-	
+
 	//废铁曲线图
 	scrapHighChart: function() {
-		var dataArr = []; //y轴数据
-		var timeArr = []; //x轴数据
+		var dataArr = []; //y轴数据 所有钢铁类的平均值
+		var timeArr = []; //x轴数据 时间
+		var splist = [];
+		//数字转化为两位小数
+		function fomatFloat(src, pos) {
+			return Math.round(src * Math.pow(10, pos)) / Math.pow(10, pos);
+		}
 		//首页废铁Ajax
 		function scrap() {
 			$.ajax({
 				url: 'http://47.93.102.34:8088/cmscm/webshop/showShouYeGT?type=1',
 				type: 'post',
-				timeout: 1500,
-				async: true,
+				async: false,
 				dataType: 'json',
-				complete: function(XMLHttpRequest, status) {　
-					if(status == 'timeout') {　
-						var nodate_pic = '<img class="nodata_img" src="images/nodata.jpg"/>';
-						$(".swiper_conten_feitie").append(nodate_pic);
-					}　　
-				},
 				success: function(res) {
-					if(res[0].count != 0) {
-						$("body").removeClass("hao-loading");
-						data = res[0].content;
-						var arr = [];
-						$(data).each(function() {
-							timeArr.push(this.monthTime.slice(6));
-							var speciesList = this.speciesList;
-							arr.push(speciesList);
-							$(speciesList).each(function() {})
-						});
-						//提取城市矿山指数下数据
-						var count = arr[0];
-						arr.forEach(function(item, index) {
-							if(index > 0) {
-								if(item.length > 0) {
-									item.forEach(function(item2) {
-										count.forEach(function(countItem, index2) {
-											if(item2.speciesId === countItem.speciesId) {
-												count[index2].avg = countItem.avg + item2.avg;
-											}
-										});
-										if(count.filter(function(countItem) {
-												return countItem.speciesId === item2.speciesId
-											}).length === 0) {
-											count.push(item2);
-										}
-									});
-								}
-							}
+					$("body").removeClass("hao-loading");
+					data = res[0].content;
+					var arr = [];
+					$(data).each(function() {
+						timeArr.push(this.monthTime.slice(6));
+						var speciesList = this.speciesList;
+						splist.push(speciesList);
+						var gangTieAvg = 0;
+						var len = speciesList.length;
+						if(len == 0) {
+							gangTieAvg = 0;
+						} else {
+							$.each(speciesList, function(index, value) {
+								var a = value.avg;
+								a = parseInt(a, 10);
+								gangTieAvg += a;
+							});
+							gangTieAvg = gangTieAvg / len;
+						}
+						gangTieAvg = fomatFloat(gangTieAvg, 2);
+						arr.unshift(gangTieAvg);
 
-						});
-						$swiper_slide = $('<div class="swiper-slide swiper-pad"><div>' +
-							'<p class="main_title">天津地区 废钢铁</p>' +
-							'</div></div>');
-						$main_pic_list = $('<div class="main_pic_list pad-top-36"></div>');
-						$(count).each(function() {
+					});
+					//提取城市矿山指数下数据
+//					var count = arr[0];
+//					arr.forEach(function(item, index) {
+//						if(index > 0) {
+//							if(item.length > 0) {
+//								item.forEach(function(item2) {
+//									count.forEach(function(countItem, index2) {
+//										if(item2.speciesId === countItem.speciesId) {
+//											count[index2].avg = countItem.avg + item2.avg;
+//										}
+//									});
+//									if(count.filter(function(countItem) {
+//											return countItem.speciesId === item2.speciesId
+//										}).length === 0) {
+//										count.push(item2);
+//									}
+//								});
+//							}
+//						}
+//
+//					});
+					$swiper_slide = $('<div class="swiper-slide swiper-pad"><div>' +
+						'<p class="main_title">天津地区 废钢铁</p>' +
+						'</div></div>');
+					$main_pic_list = $('<div class="main_pic_list pad-top-36"></div>');
 
-							$main_list_flex = $('' +
-								'<div class="main_list_flex">' +
-								'<p class="main_list_money">' +
-								'<span class="main_list_red">' + this.avg + '</span>' +
-								'<span>元</span>' +
-								'</p>'
-								// +'<p class="main_list_num">'
-								// +'<span>'
-								// +'<img src="images/sanjiaoxing.png" alt="">'//三角形图标
-								// +'</span>'
-								// +'<span class="main_list_color">40</span>'
-								// +'</p>'
-								+
-								'<p class="main_list_text">' + this.speciesName + '</p>' +
-								'</div>'
-							);
+					$(splist[0]).each(function() {
+						//						this.avg = this.avg.toFixed(2);
+						$main_list_flex = $('' +
+							'<div class="main_list_flex">' +
+							'<p class="main_list_money">' +
+							'<span class="main_list_red">' + this.avg.toFixed(2) + '</span>' +
+							'<span>元</span>' +
+							'</p>'
+							// +'<p class="main_list_num">'
+							// +'<span>'
+							// +'<img src="images/sanjiaoxing.png" alt="">'//三角形图标
+							// +'</span>'
+							// +'<span class="main_list_color">40</span>'
+							// +'</p>'
+							+
+							'<p class="main_list_text">' + this.speciesName + '</p>' +
+							'</div>'
+						);
 
-							if($main_pic_list.children().length < 2) {
-								$main_pic_list.append($main_list_flex);
-							} else {
-								$main_pic_list = $('<div class="main_pic_list"></div>');
-								$main_pic_list.append($main_list_flex);
-							}
-							$swiper_slide.append($main_pic_list);
-							if($swiper_slide.children(".main_pic_list").length <= 3) {} else {
-								$swiper_slide = $('<div class="swiper-slide swiper-pad"><div>' +
-									'<p class="main_title">天津地区 废家电</p>' +
-									'</div></div>');
-								$swiper_slide.append($main_pic_list)
+						if($main_pic_list.children().length < 2) {
+							$main_pic_list.append($main_list_flex);
+						} else {
+							$main_pic_list = $('<div class="main_pic_list"></div>');
+							$main_pic_list.append($main_list_flex);
+						}
+						$swiper_slide.append($main_pic_list);
+						if($swiper_slide.children(".main_pic_list").length <= 3) {} else {
+							$swiper_slide = $('<div class="swiper-slide swiper-pad"><div>' +
+								'<p class="main_title">天津地区 废家电</p>' +
+								'</div></div>');
+							$swiper_slide.append($main_pic_list)
 
-							}
-							$("#swiper_feitie").append($swiper_slide);
-						});
-					} else {
-						var nodate_pic = '<img class="nodata_img" src="images/nodata.jpg"/>';
-						$(".swiper_conten_feitie").append(nodate_pic);
-					};
+						}
+						$("#swiper_feitie").empty().append($swiper_slide);
+					});
 
 					var mySwiper2 = new Swiper('#swiper-container2', {
 						// 如果需要前进后退按钮
 						nextButton: '.swiper-button-next',
 						prevButton: '.swiper-button-prev'
 					});
-
-					$(arr).each(function() {
-						var avgData = 0;
-						$(this).each(function() {
-							avgData += this.avg
-						});
-						dataArr.push(avgData)
-					});
-					if(dataArr.length == 0) {
-						dataArr = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, ];
-					};
-					if(timeArr.length == 0) {
-						timeArr = [2017, 4, 1];
-					};
-					highchartFn(timeArr, dataArr)
+					highchartFn(timeArr, arr)
 				}
 
 			})
@@ -170,6 +164,9 @@ var home = {
 
 		function highchartFn(timeArr, dataArr) {
 			$('#scrap').highcharts({
+				axisLabel: {
+					interval: 0
+				},
 				chart: {
 					// type: 'spline'
 				},
@@ -317,20 +314,22 @@ var home = {
 				success: function(res) {
 					var result = res[0].content;
 					var resultArr = [];
-					$(result).each(function() {
-						speciesList = this.speciesList
-						$(speciesList).each(function() {
-							resultArr.push(this)
-						})
+					var price = 0;
+
+					$.each(result[0].speciesList, function(index, value) {
+						xAxisLable.push(value.species);
+						$.each(value.sizeList, function(i, v) {
+
+							price += v.price;
+						});
+						dataArr.push(price / value.sizeList.length);
 					})
-					$(resultArr).each(function() {
-						xAxisLable.push(this.species)
-						var price = 0;
-						$(this.sizeList).each(function() {
-							price += this.price;
-						})
-						dataArr.push(price)
-					})
+
+					if(dataArr.length == 0) {
+						dataArr = [0, 0];
+						xAxisLable = [0, 0];
+					}
+
 					applianceHighchartFn(xAxisLable, dataArr)
 				}
 
@@ -508,120 +507,120 @@ var home = {
 		$.ajax({
 			url: 'http://47.93.102.34:8088/cmscm/webshop/showShouYeJD',
 			type: 'post',
-			async: false,
+			async: true,
 			dataType: 'json',
 			success: function(res) {
 				$("body").removeClass("hao-loading");
 				var data = res[0].content;
 				var dataArr = [];
-				$(data).each(function() {
-					speciesList = this.speciesList;
-					$(speciesList).each(function() {
-						dataArr.push(this)
-					})
-				});
-				$swiper_slide = $('<div class="swiper-slide swiper-pad"><div>' +
-					'<p class="main_title">天津地区 废家电</p>' +
-					'</div></div>')
-				$flex_panel = $('<div class="flex_panel"></div>');
-				$(dataArr).each(function(index) {
+				dataArr = data[0].speciesList;
+				if(dataArr.length == 0) {
+					$('#swiper-container4').empty().append('<img class="nodata_img" src="images/nodata.jpg"/>');
+					return;
+				} else {
 
-					$flex_item = $('<div class="flex_item" data-state="false"></div>');
-					$flex_item_title = $('<p class="flex_jiadian">' + this.species + '</p>');
+					$swiper_slide = $('<div class="swiper-slide swiper-pad"><div>' +
+						'<p class="main_title">天津地区 废家电</p>' +
+						'</div></div>')
+					$flex_panel = $('<div class="flex_panel"></div>');
+					$(dataArr).each(function(index) {
 
-					$divBtn = $("<div class='tip_btn' style='background: #D8D8D8;width: 15px;height: 15px;border-radius: 50%;float: right;color: #fff;font-size: 12px;line-height: 15px;text-align: center;margin-top: 15px;cursor: pointer;'> > </div>");
-					if(index == 0) {
-						$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:15px;left:100%;background: #fff;z-index: 5000;'>");
+						$flex_item = $('<div class="flex_item" data-state="false"></div>');
+						$flex_item_title = $('<p class="flex_jiadian">' + this.species + '</p>');
 
-					} else if(index == 1) {
-						$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:15px;right:15px;background: #fff;z-index: 5000;'>");
+						$divBtn = $("<div class='tip_btn' style='background: #D8D8D8;width: 15px;height: 15px;border-radius: 50%;float: right;color: #fff;font-size: 12px;line-height: 15px;text-align: center;margin-top: 15px;cursor: pointer;'> > </div>");
+						if(index == 0) {
+							$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:15px;left:100%;background: #fff;z-index: 5000;'>");
 
-					} else if(index == 2) {
-						$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:-65px;left:100%;background: #fff;z-index: 5000;'>");
+						} else if(index == 1) {
+							$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:15px;right:15px;background: #fff;z-index: 5000;'>");
 
-					} else if(index == 3) {
-						$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:-65px;right:15px;background: #fff;z-index: 5000;'>");
-					} else if(index == 4) {
-						$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:15px;left:100%;background: #fff;z-index: 5000;'>");
-					} else {
+						} else if(index == 2) {
+							$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:-65px;left:100%;background: #fff;z-index: 5000;'>");
 
-					}
-					$divBtn1_title = $("<div style='width: 100%;height:auto;padding: 5px;border-bottom: 1px dashed #D8D8D8;font-size: 15px;color: #000;text-align: left;line-height: 30px;' class='divBtn1_title'></div>");
-					$divBtn1_con = $("<div style='width: 100%;height: 80%;padding: 10px;' class='divBtn1_con'></div>")
-					//添加div
-					$divBtn1.append($divBtn1_title)
-					$divBtn1.append($divBtn1_con)
+						} else if(index == 3) {
+							$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:-65px;right:15px;background: #fff;z-index: 5000;'>");
+						} else if(index == 4) {
+							$divBtn1 = $("<div style='display: none;width:210px;height: 200px;border: 1px solid #D8D8D8;position: absolute;top:15px;left:100%;background: #fff;z-index: 5000;'>");
+						} else {
 
-					$flex_item.append($divBtn);
+						}
+						$divBtn1_title = $("<div style='width: 100%;height:auto;padding: 5px;border-bottom: 1px dashed #D8D8D8;font-size: 15px;color: #000;text-align: left;line-height: 30px;' class='divBtn1_title'></div>");
+						$divBtn1_con = $("<div style='width: 100%;height: 80%;padding: 10px;' class='divBtn1_con'></div>")
+						//添加div
+						$divBtn1.append($divBtn1_title)
+						$divBtn1.append($divBtn1_con)
 
-					$flex_item.append($divBtn1);
-					$flex_item.append($flex_item_title);
-					//					console.log('$flex_item', $flex_item)
-					$divBtn1_title.html('<p class="flex_jiadian">' + this.species + '</p>');
-					//点击小按钮事件
+						$flex_item.append($divBtn);
 
-					//添加div中数据
-					$(this.sizeList).each(function(index) {
-						$str1 = $('<p class="flex_type">' +
-							'<span class="flex_chicun">' +
-							this.size +
-							'</span>' +
-							'<span class="flex_num">' +
-							this.price +
-							'</span>' +
-							'</p>');
-						$divBtn1_con.append($str1);
-						if(index < 2) {
-							$flex_item_content = $('<p class="flex_type">' +
+						$flex_item.append($divBtn1);
+						$flex_item.append($flex_item_title);
+						//					console.log('$flex_item', $flex_item)
+						$divBtn1_title.html('<p class="flex_jiadian">' + this.species + '</p>');
+						//点击小按钮事件
+
+						//添加div中数据
+						$(this.sizeList).each(function(index) {
+							$str1 = $('<p class="flex_type">' +
 								'<span class="flex_chicun">' +
 								this.size +
 								'</span>' +
 								'<span class="flex_num">' +
 								this.price +
-								'</span>' +
+								'元/台</span>' +
 								'</p>');
+							$divBtn1_con.append($str1);
+							if(index < 2) {
+								$flex_item_content = $('<p class="flex_type">' +
+									'<span class="flex_chicun">' +
+									this.size +
+									'</span>' +
+									'<span class="flex_num">' +
+									this.price +
+									'元/台</span>' +
+									'</p>');
 
-							$flex_item.append($flex_item_content)
+								$flex_item.append($flex_item_content)
 
-						}
+							}
 
-					});
+						});
 
-					if($flex_panel.children().length < 2) {
-						$flex_panel.append($flex_item)
-					} else {
-						$flex_panel = $('<div class="flex_panel"></div>');
-						$flex_panel.append($flex_item)
-					}
-					$swiper_slide.append($flex_panel);
-					if($swiper_slide.children(".flex_panel").length <= 2) {} else {
-						$swiper_slide = $('<div class="swiper-slide swiper-pad"><div>' +
-							'<p class="main_title">天津地区 废家电</p>' +
-							'</div></div>');
-						$swiper_slide.append($flex_panel)
-
-					}
-					$("#swiper_jiadian").append($swiper_slide)
-
-				})
-				$('.tip_btn').each(function() {
-					$(this).click(function() {
-						$('.tip_btn').next().hide();
-						console.log()
-						if($(this).parent().attr("data-state") == "false") {
-							$(this).next().show();
-							$(this).parent().attr("data-state", "true")
+						if($flex_panel.children().length < 2) {
+							$flex_panel.append($flex_item)
 						} else {
-							$(this).next().hide();
-							$(this).parent().attr("data-state", "false")
+							$flex_panel = $('<div class="flex_panel"></div>');
+							$flex_panel.append($flex_item)
 						}
+						$swiper_slide.append($flex_panel);
+						if($swiper_slide.children(".flex_panel").length <= 2) {} else {
+							$swiper_slide = $('<div class="swiper-slide swiper-pad"><div>' +
+								'<p class="main_title">天津地区 废家电</p>' +
+								'</div></div>');
+							$swiper_slide.append($flex_panel)
+
+						}
+						$("#swiper_jiadian").append($swiper_slide)
+
+					})
+					$('.tip_btn').each(function() {
+						$(this).click(function() {
+							$('.tip_btn').next().hide();
+							if($(this).parent().attr("data-state") == "false") {
+								$(this).next().show();
+								$(this).parent().attr("data-state", "true")
+							} else {
+								$(this).next().hide();
+								$(this).parent().attr("data-state", "false")
+							}
+						});
+					})
+					var mySwiper4 = new Swiper('#swiper-container4', {
+						// 如果需要前进后退按钮
+						nextButton: '.swiper-button-next',
+						prevButton: '.swiper-button-prev'
 					});
-				})
-				var mySwiper4 = new Swiper('#swiper-container4', {
-					// 如果需要前进后退按钮
-					nextButton: '.swiper-button-next',
-					prevButton: '.swiper-button-prev'
-				});
+				}
 			}
 		})
 	}
@@ -629,13 +628,13 @@ var home = {
 };
 
 $(function() {
-	home.selSearch();  //钢铁 纸 家电条件搜索
+	home.selSearch(); //钢铁 纸 家电条件搜索
 	home.scrapHighChart(); //调用废钢铁曲线图
 	home.paperHighChart(); //调用废纸曲线图
 	home.applianceHighChart(); //调用废家电柱形图
 	home.recommend(); //调用精选推荐
 	home.yesterdayAjax(); //调用成交单数
-	home.household();  // 首页家电ajax
+	home.household(); // 首页家电ajax
 	// 钢铁，纸，家电切换
 	$('#product_list').on('click', 'li', function() {
 		var index = $(this).index();
@@ -645,9 +644,9 @@ $(function() {
 	$('#product_city').change(function() {
 		home.changeVal1 = $(this).val();
 	});
-//	$('#product_city2').change(function() {
-//		home.changeVal2 = $(this).val();
-//	});
+	//	$('#product_city2').change(function() {
+	//		home.changeVal2 = $(this).val();
+	//	});
 	$('#product_ming').change(function() {
 		home.product_name1 = $(this).val();
 	});
@@ -691,7 +690,7 @@ $(function() {
 	});
 	//首页banner
 	var mySwiper1 = new Swiper('.swiper-container1', {
-		autoplay: 5000,
+		autoplay: 3000,
 		speed: 300,
 		loop: true,
 		paginationClickable: true,
