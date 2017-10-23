@@ -69,7 +69,7 @@
 .spot_search .spot_search_content select{
      border:1px solid #e6e6e6;
     height:27px;
-    width:85px;
+    min-width:85px;
 }
 .resource_search .resource_search_content div:last-of-type input{
     width:235px;

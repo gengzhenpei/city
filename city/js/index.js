@@ -181,7 +181,7 @@ var home = {
 				xAxis: {
 					type: 'datetime',
 					labels: {
-						format: '{value: %m / %d }',
+						format: '{value: %m 月 }',
 						align: 'center',
 						rotation: 0
 					}
@@ -223,7 +223,7 @@ var home = {
 
 					data: dataArr,
 					pointStart: Date.UTC(2017, (timeArr[timeArr.length - 1] - 1), 1),
-					pointInterval: 30 * 24 * 3600 * 1000
+					pointInterval: 31 * 24 * 3600 * 1000
 				}, ],
 				navigation: {
 					menuItemStyle: {
@@ -251,7 +251,7 @@ var home = {
 			xAxis: {
 				type: 'datetime',
 				labels: {
-					format: '{value: %m / %d }',
+					format: '{value: %m 月 }',
 					align: 'center',
 					rotation: 0
 				}
@@ -289,9 +289,9 @@ var home = {
 			series: [{
 				name: '<b style="color:#333333;font-weight:100;font-size:15px">纸</b>',
 
-				data: [0.9, 0.6, 3.5, 8.4, 13.5, 17.0],
-				pointStart: Date.UTC(2017, 2, 1),
-				pointInterval: 30 * 24 * 3600 * 1000
+				data: [950, 950, 950, 940, 930, 920],
+				pointStart: Date.UTC(2017, 3, 1),
+				pointInterval: 31 * 24 * 3600 * 1000
 			}, ],
 			navigation: {
 				menuItemStyle: {

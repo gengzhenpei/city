@@ -188,7 +188,6 @@ $(function(){
     // $flag=true;
     spot.getSize()    //得到品种
     $("#species").change(spot.getSize)
-    console.log('spot.dataObj', spot.dataObj)
     spot.getSpot(spot.dataObj)   //废家电数据
     
     $("#search").click(function(){

@@ -120,7 +120,9 @@ var resource = {
 			data: dataObj,
 			success: function(data) {
 				// console.log(data)
+//				$('.myFollows').html('我关注的(' + data[0].count + ')');
 				$('.myFollows a').text(data[0].count);
+				
 			},
 			fail: function(err) {
 				console.log(err)
@@ -213,7 +215,9 @@ var resource = {
 			success: function(data) {
 				// console.log(data[0])
 				console.log(data)
-				$('.myFollows a').html(data[0].count);
+//				$('.myFollows').html('我关注的(' + data[0].count + ')');
+				$('.myFollows a').text(data[0].count);
+				
 			},
 			fail: function(err) {
 				console.log(err)
@@ -710,7 +714,7 @@ $(function() {
 				userId: userId
 			},
 			success: function(data) {
-				console.log('data', data)
+				console.log(data)
 				$opStr = "";
 				$opStr += "<option value='" + data[0].defaultGroup.groupId + "'>" + data[0].defaultGroup.groupName + "</option>";
 				$(data[0].content).each(function() {
