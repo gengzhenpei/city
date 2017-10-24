@@ -329,8 +329,8 @@ $(function() {
 							$('.pageg').html(preliminary.dataObj.numPerPage); //共多少页
 							$('.waste-search').html("");
 							$('.hang button').eq(0).css('background', 'rgb(240,175,101)');
-							$('.waste-search').append('<span>所在地</span><select class="whole-country"><option value="">全国</option></select><span>品名</span><select class="Varieties"></select><span>材质</span><input type="text" class="cz" /><span>钢厂</span><input type="text" class="gc" /><span>仓库</span><input type="text" class="ck" /><button>找货</button>')
-							$('.Varieties').append('<option value="重型废钢">重型废钢</option><option value="统料废钢">统料废钢</option><option value="中型废钢">中型废钢</option><option value="薄型废钢">薄型废钢</option><option value="小型废钢">小型废钢</option>');
+							$('.waste-search').append('<span>所在地</span><select class="whole-country"><option value="">全国</option></select><span>品名</span><select class="Varieties"></select><span>材质</span><input type="text" class="cz" /><span>纸厂</span><input type="text" class="gc" /><span>仓库</span><input type="text" class="ck" /><button>找货</button>')
+							$('.Varieties').append('<option value="重型废钢">箱板A级</option><option value="统料废钢">箱板B级</option><option value="中型废钢">箱板C级</option><option value="薄型废钢">箱板统货</option><option value="小型废钢">大花统货</option><option value="小型废钢">带皮书切页子</option><option value="小型废钢">混合白纸</option><option value="小型废钢">B级页子纸</option>');
 							$('.whole-country').append('<option value="TIANJIN">天津市</option><option value="BEIJIN">北京市</option><option value="SHANGHAI">上海市</option><option value="GUANGZHOU">广州市</option><option value="SHENZHEN">深圳市</option><option value="SHIJIAZHUANG">石家庄</option>')
 							$('.Varieties').val(preliminary.dataObj.tradeName ? preliminary.dataObj.tradeName : "");
 							$('.whole-country').val(preliminary.dataObj.localCity ? preliminary.dataObj.localCity : "");
